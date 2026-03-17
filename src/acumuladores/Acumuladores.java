@@ -84,7 +84,35 @@ public class Acumuladores {
 	 * @return
 	 */
 	public boolean algunaFilaSumaMasQueLaColumna(int[][] mat, int nColum) { 
-		throw new RuntimeException("Metodo no implementado aun!!!");
+		 
+		boolean algunaFilaSumaMas = false;
+		
+		int sumanColum = sumarnColum(mat, nColum);
+		
+		for (int fila = 0; fila < mat.length; fila++) {
+			int sumaFila = sumarFila (mat);
+			algunaFilaSumaMas = algunaFilaSumaMas || sumaFila == sumanColum;
+		}
+		
+		return algunaFilaSumaMas;
+	}
+	
+	public int sumarnColum (int [][] mat, int nColum) {
+		int suma = 0;
+		for (int fila = 0; fila < mat.length; fila++) {
+			suma = suma + mat[fila][nColum];
+		}
+		return suma;
+	}
+	
+	public int sumarFila (int [][] mat) {
+		int suma = 0;
+		for (int fila = 0; fila < mat.length; fila++) {
+			for (int col = 0; col < mat[fila].length; col++) {
+				suma = suma + mat[fila][col];
+			}
+		}
+		return suma;
 	}
 	
 	/**
@@ -98,7 +126,5 @@ public class Acumuladores {
 	 * @param mat2
 	 * @return
 	 */
-	public boolean hayInterseccionPorColumna(int[][] mat1, int[][]mat2) { 
-		throw new RuntimeException("Metodo no implementado aun!!!");
-	}
+	
 }
