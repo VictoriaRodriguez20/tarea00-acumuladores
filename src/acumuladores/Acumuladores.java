@@ -14,8 +14,27 @@ public class Acumuladores {
 	 * @return
 	 */
 	public boolean todosMultiplosEnAlgunaFila(int[][] mat, int num) { 
-		throw new RuntimeException("Metodo no implementado aun!!!");
+		boolean existeFila = false;
+		
+		for (int fila = 0; fila < mat.length; fila ++) {
+			existeFila = existeFila || todosMultiplos(mat[fila], num);
+		}
+		
+		return existeFila;
 	}
+	
+	public boolean todosMultiplos (int [] fila, int num) {
+		boolean todosMultiplos = true;
+		
+		for (int col = 0; col < fila.length; col++) {
+			todosMultiplos = todosMultiplos && fila[col] % num == 0;
+		}
+		
+		return todosMultiplos;
+		
+	}
+	
+
 	
 	/**
 	 * Dado 2 matrices se verifica si hay intersección entre las filas de cada
