@@ -48,7 +48,27 @@ public class Acumuladores {
 	 * @return
 	 */
 	public boolean hayInterseccionPorFila(int[][] mat1, int[][]mat2) { 
-		throw new RuntimeException("Metodo no implementado aun!!!");
+		
+		boolean interseccionPorFila = true;
+		
+		for (int fila = 0; fila < mat1.length; fila ++) {
+			interseccionPorFila = interseccionPorFila && lasFilasInterseccionan(mat1[fila], mat2[fila]);
+		}
+		
+		return interseccionPorFila;
+	}
+	
+	public boolean lasFilasInterseccionan(int [] fila1, int [] fila2) {
+		
+		boolean interseccion = false;
+		
+		for (int col = 0; col < fila1.length; col++) {
+			for (int col2 = 0; col2 < fila2.length; col2++) {
+				interseccion = interseccion || fila1[col] == fila2[col2];
+			}
+		}
+		
+		return interseccion;
 	}
 	
 	/**
